@@ -78,6 +78,8 @@ class Graph:
 
         for neighbor in self.vertices[starting_vertex]:
             if neighbor not in visited:
+                #on each recursive call the "neighbor" will be the starting_vertex (that's why we add it as a parameter)
+                #we pass visited in on each call of the recursive function (that's why we add it as a parameter)
                 self.dft_recursive(neighbor, visited)
             print("Visited: ", visited)
 
@@ -87,7 +89,9 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
+        
+
+        
 
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -130,6 +134,7 @@ class Graph:
         #traverse through the neighbors and check if they have been visited or not
         for neighbor in self.get_neighbors(starting_vertex):
             if neighbor not in visited:
+                #creating a custom path for every neighbor
                 new_path = self.dfs_recursive(neighbor, destination_vertex, visited, path)
                 if new_path is not None:
                     return new_path
